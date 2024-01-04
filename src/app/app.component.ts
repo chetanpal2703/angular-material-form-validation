@@ -40,10 +40,12 @@ export class AppComponent implements OnInit {
     const hasNumericCharacters = /\d/.test(value);
 
     if (isWhitespace) {
+      console.log(isWhitespace,"iswhitespace")
       return { 'whitespace': true };
     }
 
     if (hasNumericCharacters) {
+      console.log(hasNumericCharacters,"hasnumeric")
       return { 'numeric': true };
     }
 

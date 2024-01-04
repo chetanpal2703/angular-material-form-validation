@@ -18,7 +18,7 @@
   </div> -->
   <div class="formgroup">
     <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name"
+    <input type="text" id="name" formControlName="name" appOnlyAlphabets
       [ngClass]="{'smallinput': myForm.get('name').touched && (myForm.get('name').hasError('whitespace') || myForm.get('name').hasError('numeric'))}">
     <small [ngClass]="{'smallcls': myForm.get('name').touched && (myForm.get('name').hasError('whitespace') || myForm.get('name').hasError('numeric'))}"
       *ngIf="myForm.get('name').touched">
