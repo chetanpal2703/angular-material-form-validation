@@ -1,12 +1,34 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <div class="formgroup">
+  <!-- <div class="formgroup">
     <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name"
+    <input type="text" id="name" formControlName="name" appOnlyAlphabets
       [ngClass]="{'smallinput':(myForm.get('name').hasError('whitespace') && myForm.get('name').touched)}   ">
     <small [ngClass]="{'smallcls':(5>4)}"
       *ngIf="myForm.get('name').hasError('whitespace') && myForm.get('name').touched">Please enter a valid name (cannot
       be only spaces).</small>
+  </div> -->
+
+  <!-- <div class="formgroup">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <small [ngClass]="{'smallcls': myForm.get('name').hasError('whitespace') || myForm.get('name').hasError('numeric')}"
+      *ngIf="myForm.get('name').touched">
+      {{ myForm.get('name').hasError('whitespace') ? 'Please enter a valid name (cannot be only spaces).' : myForm.get('name').hasError('numeric') ? 'Only enter characters.' : '' }}
+    </small>
+  </div> -->
+  <div class="formgroup">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name"
+      [ngClass]="{'smallinput': myForm.get('name').touched && (myForm.get('name').hasError('whitespace') || myForm.get('name').hasError('numeric'))}">
+    <small [ngClass]="{'smallcls': myForm.get('name').touched && (myForm.get('name').hasError('whitespace') || myForm.get('name').hasError('numeric'))}"
+      *ngIf="myForm.get('name').touched">
+      {{ myForm.get('name').hasError('whitespace') ? 'Please enter a valid name (cannot be only spaces).' : myForm.get('name').hasError('numeric') ? 'Only enter characters.' : '' }}
+    </small>
   </div>
+  
+  
+  
+
   <div class="formgroup">
     <label for="email">Email:</label>
     <input type="text" id="email" formControlName="email"

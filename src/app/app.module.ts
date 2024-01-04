@@ -9,12 +9,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OnlyNumberDirective } from './only-number.directive';
+import { OnlyAlphabetsDirective } from './only-alphabets.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OnlyNumberDirective
+    OnlyNumberDirective,
+    OnlyAlphabetsDirective
   ],
   imports: [
     BrowserModule,
